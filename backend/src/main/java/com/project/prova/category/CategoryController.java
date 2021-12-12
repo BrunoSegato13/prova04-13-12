@@ -12,6 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/category")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "*")
 public class CategoryController extends HandleValidationsExceptions {
 
     private final CategoryService categoryService;
