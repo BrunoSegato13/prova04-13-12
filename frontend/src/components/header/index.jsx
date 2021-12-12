@@ -15,9 +15,9 @@ const Header = () => {
         <Toolbar className={classes.toolBar}>
           <Box className={classes.navLink}>
             <NavLink to="/">Home</NavLink>
-            <NavLink to="/">Produtos</NavLink>
+            <NavLink to="/product">Produtos</NavLink>
             <NavLink to="/category">Categorias</NavLink>
-            <NavLink to="/">Fornecedores</NavLink>
+            <NavLink to="/vendor">Fornecedores</NavLink>
           </Box>
         </Toolbar>
       </AppBar>

@@ -5,7 +5,7 @@ import { Button, Card, CardContent, CardHeader, Dialog, DialogActions, DialogCon
 import api from "../../config/api"
 
 const CategoryUpdateCard = (props) => {
-  const { category, openForm, handleFormClose } = props;
+  const { category, openForm, closeForm } = props;
   const [values, setValues] = useState(category);
 
   const updateValue = (event) => {
@@ -19,18 +19,18 @@ const CategoryUpdateCard = (props) => {
     event.preventDefault();
     try {
       await api.put('category', values);
-      handleFormClose();
+      closeForm();
     } catch (error) {
-      alert(error.response.data.message);
+      alert(error);
     }
   }
 
   return(
-    <Dialog open={openForm} onClose={handleFormClose} maxWidth="xs">
+    <Dialog open={openForm} onClose={closeForm} maxWidth="xs">
       <DialogContent style={{ padding: 0 }}>
         <Card>
           <form onSubmit={submitForm} data-testid="form">
-          <CardHeader title="Adicionar Categoria" />
+          <CardHeader title="Editar Categoria" />
           <Divider />
           <CardContent>
             <Grid container spacing={3}>
@@ -53,7 +53,7 @@ const CategoryUpdateCard = (props) => {
             <Button
               variant="outlined"
               fullWidth
-              onClick={handleFormClose}
+              onClick={closeForm}
               size="large"
             >
               CANCELAR

@@ -51,7 +51,7 @@ public class ProductService {
     public Product addToStock(Long id, StockChange stockChange) {
         Product product = findById(id);
         if (Objects.nonNull(stockChange.getQuantity()) && stockChange.getQuantity() >= 1) {
-            product.setBalance(product.getBalance() + stockChange.getQuantity());
+            product.setBalance(Objects.nonNull(product.getBalance()) ? product.getBalance() + stockChange.getQuantity() : stockChange.getQuantity());
         } else {
             throw new BadRequestException("Quantidade deve ser maior que zero!");
         }
@@ -62,7 +62,7 @@ public class ProductService {
         Product product = findById(id);
         if (Objects.isNull(stockChange.getQuantity())) {
             throw new BadRequestException("Quantidade é obrigatório!");
-        } else if ((stockChange.getQuantity() >= 1) && (product.getBalance() >= stockChange.getQuantity())) {
+        } else if (Objects.nonNull(product.getBalance()) && (stockChange.getQuantity() >= 1) && (product.getBalance() >= stockChange.getQuantity())) {
             product.setBalance(product.getBalance() - stockChange.getQuantity());
         } else {
             throw new BadRequestException("Quantidade a ser retirada excede a quantidade em estoque!");

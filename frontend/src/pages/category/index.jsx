@@ -2,19 +2,19 @@ import { Button, Typography } from "@mui/material";
 import React, { useState, useEffect } from "react";
 import CategoryCard from "../../components/category/CategoryCard.jsx"
 import Header from "../../components/header";
-import useStyles from "./styles";
-import api from "../../config/api"
 import CategoryCreateCard from "../../components/category/CategoryCreateCard";
+import useStyles from "./styles";
 
+import api from "../../config/api"
 
 const Category = () => {
   const classes = useStyles();
 
   const [categories, setCategories] = useState([]);
-  const [formOpened, setFormOpened] = useState(false);
+  const [isFormOpen, setIsFormOpen] = useState(false);
   const [updateCards, setUpdateCards] = useState(true);
 
-  const getCategories = async () =>{
+  const getCategories = async () => {
     const { data } = await api.get('category');
     setCategories(data)
     console.log(data)
@@ -25,32 +25,32 @@ const Category = () => {
   }, [updateCards]);
 
 
-  const formOpen = () => {
-    setFormOpened(true);
+  const handleFormOpen = () => {
+    setIsFormOpen(true);
   }
 
-  const formClose = () => {
-    setFormOpened(false);
+  const handleFormClose = () => {
+    setIsFormOpen(false);
     setUpdateCards(!updateCards);
   }
 
 
-  return(
+  return (
     <div className={classes.root}>
-     <Header/>
-     <Typography variant="h2">Categorias</Typography>
-     <Button name="create" variant="outlined" onClick={formOpen}>Adicionar nova categoria</Button>
-     <div>
-       {categories.map(category => (
+      <Header />
+      <Typography variant="h2">Categorias</Typography>
+      <Button name="create" variant="outlined" onClick={handleFormOpen} className={classes.button} >Adicionar nova categoria</Button>
+      <div>
+        {categories.map(category => (
           <CategoryCard
             key={category.id}
             category={category}
-            updateCards={setUpdateCards} 
+            updateCards={setUpdateCards}
             updatecards={updateCards}
           />
-       ))}
-     </div>
-     <CategoryCreateCard openForm={formOpened} handleFormClose={formClose}/>
+        ))}
+      </div>
+      <CategoryCreateCard openForm={isFormOpen} closeForm={handleFormClose} />
     </div>
   )
 }

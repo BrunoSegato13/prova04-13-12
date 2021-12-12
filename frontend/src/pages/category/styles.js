@@ -11,6 +11,12 @@ const useStyles = makeStyles({
       display: "flex",
       justifyContent: "center"
     },
+
+    button:{
+      "&&":{
+        width: "400px"
+      },
+    }
     
   },
 })
