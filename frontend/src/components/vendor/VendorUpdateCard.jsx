@@ -21,7 +21,7 @@ const VendorUpdateCard = (props) => {
       await api.put('vendor', values);
       closeForm();
     } catch (error) {
-      alert(error);
+      alert(error.response.data.message);
     }
   }
 

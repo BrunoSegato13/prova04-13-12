@@ -43,7 +43,7 @@ const VendorUpdateCard = (props) => {
       await api.put('product', values);
       closeForm();
     } catch (error) {
-      alert(error);
+      alert(error.response.data.message);
     }
   }
 

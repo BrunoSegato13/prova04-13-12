@@ -48,7 +48,7 @@ const ProductCreateCard = (props) => {
         name: '',
       })
     } catch (error) {
-      alert(error);
+      alert(error.response.data.message);
     }
   }
 
@@ -107,6 +107,9 @@ const ProductCreateCard = (props) => {
                     label="Categoria"
                     defaultValue=""
                     value={values.category}
+                    inputProps={{
+                      "data-testid":"category"
+                    }}
                     {...props}
                   >
                     {categories.map((category) => (
@@ -128,6 +131,9 @@ const ProductCreateCard = (props) => {
                     label="Fornecedor"
                     defaultValue=""
                     value={values.vendor}
+                    inputProps={{
+                      "data-testid":"vendor"
+                    }}
                     {...props}
                   >
                     {vendors.map((vendor) => (

@@ -7,16 +7,8 @@ p
 @src/main/java/com/project/prova/category/CategoryRepository.java,6/7/679313da9dcb7ee31f045b1d1022e7937bd6665a
 m
 =src/main/java/com/project/prova/category/CategoryService.java,0/6/069e9d941d8f6ab8f132609b8c857c7b3be74015
-s
-Csrc/main/java/com/project/prova/exceptions/BadRequestException.java,2/6/26b988abc427d9e779ba3e3258afe4d3dce6619e
-o
-?src/main/java/com/project/prova/exceptions/CustomException.java,6/2/623c776902f6ec27c772c7332e8eca230cf1858a
-v
-Fsrc/main/java/com/project/prova/exceptions/CustomExceptionHandler.java,f/9/f9c562ce1dc4d7c0912e755f14707fe29ee992f3
 {
 Ksrc/main/java/com/project/prova/exceptions/HandleValidationsExceptions.java,d/0/d097ae4903622fb330e7fc356aaa669a298c9479
-~
-Nsrc/main/java/com/project/prova/exceptions/ResourceAlreadyExistsException.java,5/8/58d8d03cd2d1cf7eff3d7fe1b50e8729ca8f3207
 y
 Isrc/main/java/com/project/prova/exceptions/ResourceNotFoundException.java,5/1/51cfa7587dd9672009a38508c059e5f2b117755f
 n
@@ -29,3 +21,9 @@ i
 9src/main/java/com/project/prova/vendor/VendorService.java,e/6/e632949e981bbd0fdcf2df7b9664caf6c4a71b35
 h
 8src/main/java/com/project/prova/product/StockChange.java,9/d/9df5d497d203df7e69efd0c0b8bd0ac33f78032a
+l
+<src/main/java/com/project/prova/vendor/VendorController.java,c/d/cdd9e67d1dcae7a26232297054e765091446656e
+e
+5src/main/java/com/project/prova/config/WebConfig.java,9/1/9182d3f54c7d07bec613f7918d25a5169760d8bd
+p
+@src/main/java/com/project/prova/category/CategoryController.java,f/b/fbd5dff5e105824fc759684cad40b5e2c71eb148

@@ -21,7 +21,7 @@ const CategoryUpdateCard = (props) => {
       await api.put('category', values);
       closeForm();
     } catch (error) {
-      alert(error);
+      alert(error.response.data.message);
     }
   }
 

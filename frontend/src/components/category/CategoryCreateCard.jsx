@@ -42,11 +42,13 @@ const CategoryCreateCard = (props) => {
                   fullWidth
                   label="Nome"
                   name="name"
-                  data-testid="name"
                   onChange={updateValue}
                   required
                   value={values.name}
                   variant="outlined"
+                  inputProps={{
+                    "data-testid": "name"
+                  }}
                 />
               </Grid>
             </Grid>
@@ -62,6 +64,7 @@ const CategoryCreateCard = (props) => {
               CANCELAR
             </Button>
             <Button
+              data-testid="add-button"
               fullWidth
               color="primary"
               variant="contained"

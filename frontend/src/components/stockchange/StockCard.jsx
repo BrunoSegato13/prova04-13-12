@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {
   Button, Card, CardContent, CardHeader, DialogActions,
-  Divider, Grid, TextField, InputLabel, Select, MenuItem, FormControl, Typography
+  Divider, Grid, TextField, InputLabel, Select, MenuItem, FormControl,
 } from '@mui/material';
 
 import useStyles from "./styles";
@@ -29,15 +29,12 @@ const StockCard = () => {
     setProduct(
       event.target.value
     );
-    console.log(product)
   };
 
   const updateStock = (event) =>{
     setStock({
       [event.target.name]: event.target.value,
     });
-    console.log(stock)
-    console.log(product.product)
   };
 
   const handleAddStock = async (event) => {
@@ -46,7 +43,7 @@ const StockCard = () => {
       await api.patch(`product/addstock/${product.id}`, stock);
       getProducts();
     } catch (error) {
-      alert(error);
+      alert(error.response.data.message);
     }
   }
 
@@ -56,7 +53,7 @@ const StockCard = () => {
       await api.patch(`product/removestock/${product.id}`, stock);
       getProducts();
     } catch (error) {
-      alert(error);
+      alert(error.response.data.message);
     }
   }
 

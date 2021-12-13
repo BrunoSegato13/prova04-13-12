@@ -42,11 +42,13 @@ const VendorCreateCard = (props) => {
                   fullWidth
                   label="Nome"
                   name="name"
-                  data-testid="name"
                   onChange={updateValue}
                   required
                   value={values.name}
                   variant="outlined"
+                  inputProps={{
+                    "data-testid": "name"
+                  }}
                 />
               </Grid>
             </Grid>
@@ -68,6 +70,7 @@ const VendorCreateCard = (props) => {
               size="large"
               type="submit"
               name="save-button"
+              data-testid="add-button"
             >
               ADICIONAR
             </Button>
