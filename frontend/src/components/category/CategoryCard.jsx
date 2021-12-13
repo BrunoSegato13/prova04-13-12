@@ -31,12 +31,14 @@ const CategoryCard = (props) => {
       <Card className={classes.card} sx={{ maxWidth: 400 }}>
         <CardHeader className={classes.cardHeader}
           title={category.name}
+          name={`${category.name}`}
+          id={`${category.id}`}
         />
         <CardActions className={classes.cardActions} disableSpacing>
-          <IconButton id={`${category.id}-update-button`} aria-label="edit" onClick={handleUpdateFormOpen}>
+          <IconButton id={`update-button-${category.id}`} aria-label="edit" onClick={handleUpdateFormOpen}>
             <Edit />
           </IconButton>
-          <IconButton id={`${category.id}-delete-button`} aria-label="delete" onClick={deleteCategory}>
+          <IconButton id={`delete-button-${category.id}`} aria-label="delete" onClick={deleteCategory}>
             <Delete />
           </IconButton>
         </CardActions>

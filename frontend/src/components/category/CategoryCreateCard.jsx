@@ -47,6 +47,7 @@ const CategoryCreateCard = (props) => {
                   value={values.name}
                   variant="outlined"
                   inputProps={{
+                    "id": "category-name",
                     "data-testid": "name"
                   }}
                 />
@@ -65,6 +66,7 @@ const CategoryCreateCard = (props) => {
             </Button>
             <Button
               data-testid="add-button"
+              id="add-button"
               fullWidth
               color="primary"
               variant="contained"

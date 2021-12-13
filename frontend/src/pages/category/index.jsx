@@ -39,7 +39,7 @@ const Category = () => {
     <div className={classes.root}>
       <Header />
       <Typography variant="h2">Categorias</Typography>
-      <Button name="create" variant="outlined" onClick={handleFormOpen} className={classes.button} >Adicionar nova categoria</Button>
+      <Button name="create" id="create-button" variant="outlined" onClick={handleFormOpen} className={classes.button} >Adicionar nova categoria</Button>
       <div>
         {categories.map(category => (
           <CategoryCard
