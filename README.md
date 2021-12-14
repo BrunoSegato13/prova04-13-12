@@ -4,7 +4,7 @@ A prova consiste no desenvolvimento de um sistema para gerenciar estoques de pro
  - Backend;
  - Frontend;
  - Projeto de teste com Selenium; e
- - E o diagrama MER dos sitema [MER dos sistema](https://github.com/BrunoSegato13/prova04-13-12/blob/master/documentation/mer-prova04.png)
+ - E o diagrama [MER](https://github.com/BrunoSegato13/prova04-13-12/blob/master/documentation/mer-prova04.png) dos sistema;
 
 ### Tecnologias utilizadas:
 
