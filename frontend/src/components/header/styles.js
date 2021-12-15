@@ -12,7 +12,8 @@ const useStyles = makeStyles({
   toolBar: {
     display: "flex",
     justifyContent: "center",
-    width: "50%"
+    width: "50%",
+    margin: "auto"
   },
 
 

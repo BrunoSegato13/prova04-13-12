@@ -1,7 +1,9 @@
 package com.project.prova.category;
 
+import com.project.prova.exceptions.BadRequestException;
 import com.project.prova.exceptions.ResourceAlreadyExistsException;
 import com.project.prova.exceptions.ResourceNotFoundException;
+import com.project.prova.product.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,7 @@ import java.util.List;
 public class CategoryService {
 
     private final CategoryRepository categoryRepository;
+    private final ProductRepository productRepository;
 
 
     public boolean existsByCategoryName(Category category) {
@@ -43,6 +46,8 @@ public class CategoryService {
     public void delete(Long id) {
         if (!categoryRepository.existsById(id)) {
             throw new ResourceNotFoundException("Categoria não encontrada");
+        } else if(productRepository.existsByCategoryId(id)){
+            throw new BadRequestException("Essa categoria está em uso!");
         }
         categoryRepository.deleteById(id);
     }

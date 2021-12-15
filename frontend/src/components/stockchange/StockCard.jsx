@@ -42,6 +42,9 @@ const StockCard = () => {
     try {
       await api.patch(`product/addstock/${product.id}`, stock);
       getProducts();
+      setProduct({
+        balance: ""
+      })
     } catch (error) {
       alert(error.response.data.message);
     }
@@ -52,6 +55,9 @@ const StockCard = () => {
     try {
       await api.patch(`product/removestock/${product.id}`, stock);
       getProducts();
+      setProduct({
+        balance: ""
+      })
     } catch (error) {
       alert(error.response.data.message);
     }

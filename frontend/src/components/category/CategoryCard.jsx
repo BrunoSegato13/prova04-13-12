@@ -8,7 +8,7 @@ import api from "../../config/api"
 
 const CategoryCard = (props) => {
   const classes = useStyles();
- 
+
   const { category, updateCards, updatecards } = props;
   const [isFormOpen, setIsFormOpen] = useState(false);
 
@@ -22,8 +22,12 @@ const CategoryCard = (props) => {
   }
 
   const deleteCategory = async () => {
-    await api.delete(`category/${category.id}`);
-    updateCards(!updatecards);
+    try {
+      await api.delete(`category/${category.id}`);
+      updateCards(!updatecards);
+    } catch (error) {
+      alert(error.response.data.message);
+    }
   };
 
   return (

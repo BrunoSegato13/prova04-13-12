@@ -1,7 +1,9 @@
 package com.project.prova.vendor;
 
+import com.project.prova.exceptions.BadRequestException;
 import com.project.prova.exceptions.ResourceAlreadyExistsException;
 import com.project.prova.exceptions.ResourceNotFoundException;
+import com.project.prova.product.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,7 @@ import java.util.List;
 public class VendorService {
 
     private final VendorRepository vendorRepository;
+    private final ProductRepository productRepository;
 
     public boolean existsByVendorName(Vendor vendor) {
         return vendorRepository.existsByVendorName(vendor.getName().toUpperCase());
@@ -42,6 +45,8 @@ public class VendorService {
     public void delete(Long id) {
         if (!vendorRepository.existsById(id)) {
             throw new ResourceNotFoundException("Categoria não encontrada");
+        } else if(productRepository.existsByVendorId(id)){
+            throw new BadRequestException("Este fornecedor está em uso!");
         }
         vendorRepository.deleteById(id);
     }

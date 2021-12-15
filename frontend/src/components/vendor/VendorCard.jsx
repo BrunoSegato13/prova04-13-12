@@ -8,7 +8,7 @@ import api from "../../config/api"
 
 const VendorCard = (props) => {
   const classes = useStyles();
- 
+
   const { vendor, updateCards, updatecards } = props;
   const [isFormOpen, setIsFormOpen] = useState(false);
 
@@ -22,8 +22,12 @@ const VendorCard = (props) => {
   }
 
   const deleteVendor = async () => {
-    await api.delete(`vendor/${vendor.id}`);
-    updateCards(!updatecards);
+    try {
+      await api.delete(`vendor/${vendor.id}`);
+      updateCards(!updatecards);
+    } catch (error) {
+      alert(error.response.data.message);
+    }
   };
 
   return (
